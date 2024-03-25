@@ -1,5 +1,6 @@
-##Creating Custom System Call Implementation
+#Sriram-Vibhav-OS_EL
+## Custom System Call Implementation 
 
-This repository consists of the files and other materials we used in our project
+This repository contains all the files and materials we used to make our project.
 
 
