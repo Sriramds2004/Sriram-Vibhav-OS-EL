@@ -1,7 +1,8 @@
 
 ## Custom System Call Implementation 
 
-This repository contains all the files and materials we used to make our project. 
+This repository contains all the files and materials we used to make our project.  The pair of programs demonstrates how a user-space program can invoke a custom system call implemented in the kernel to perform a specific operation—in this case, computing the SHA-256 hash of a file. The system call implementation in the kernel ensures proper handling of resources, error conditions, and security considerations.
+
 
 ## User Space Program
 
@@ -19,6 +20,8 @@ It declares an array hash_output to store the resulting hash.
 It calls the custom system call syscall(__NR_hash_file, ...) with appropriate arguments to compute the hash.
 If the system call fails, it prints an error message using perror() and exits with failure status.
 It prints the computed hash value in hexadecimal format.
+
+
 
 ## Kernel Space System Call Implementation
 
