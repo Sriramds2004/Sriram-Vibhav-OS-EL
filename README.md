@@ -20,6 +20,25 @@ It calls the custom system call syscall(__NR_hash_file, ...) with appropriate ar
 If the system call fails, it prints an error message using perror() and exits with failure status.
 It prints the computed hash value in hexadecimal format.
 
-##
+## Kernel Space System Call Implementation
+
+This code is part of the Linux kernel and implements the custom system call hash_file for computing the SHA-256 hash of a file.
+
+Include Headers: It includes necessary kernel headers like linux/kernel.h, linux/syscalls.h, etc.
+
+Define Constants: It defines constants such as MAX_FILE_PATH_LEN and SHA256_DIGEST_SIZE similar to the user-space program.
+
+System Call Definition:
+
+It defines the system call SYSCALL_DEFINE6(hash_file, ...) with six arguments.
+The arguments include the filename, filename length, and buffer for hash output.
+Inside the system call function, it performs the following steps:
+Allocates memory for a buffer to read file content (buf).
+Opens the file specified by the user.
+Allocates a hash transformation object (tfm) and initializes a hash descriptor (desc) for SHA-256 hashing.
+Reads the file content in chunks, updates the hash, and finalizes the hash computation.
+Copies the computed hash value to the user-space buffer.
+Frees allocated resources and closes the file.
+Error Handling: It includes error handling to handle cases where file opening fails, memory allocation fails, or hash computation encounters an error.
 
 
